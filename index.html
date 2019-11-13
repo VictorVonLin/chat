@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" href="logo.png">
+	<title>Chat.</title>
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="chat.css">
+	<script
+	  src="https://code.jquery.com/jquery-3.1.1.min.js"
+	  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	  crossorigin="anonymous"></script>
+</head>
+<body>
+	<!-- <div class="ui segment"> -->
+		
+	<div id="header">
+		<h2 class="ui header">
+			<img src="logo.png">
+			<div class="content">
+			    Chat™
+			<div class="sub header">It's literally Messenger...</div>
+			</div>
+		</h2>
+	</div>
+			
+		<div id="content">
+			<div class="ui placeholder">
+			  <div class="image header">
+			    <div class="line"></div>
+			    <div class="line"></div>
+			  </div>
+			</div>
+			<div class="ui placeholder">
+			  <div class="image header">
+			    <div class="line"></div>
+			    <div class="line"></div>
+			  </div>
+			</div>
+			<div class="ui placeholder">
+			  <div class="image header">
+			    <div class="line"></div>
+			    <div class="line"></div>
+			  </div>
+			</div>
+			<div class="ui placeholder">
+			  <div class="image header">
+			    <div class="line"></div>
+			    <div class="line"></div>
+			  </div>
+			</div>
+			<div class="ui placeholder">
+			  <div class="image header">
+			    <div class="line"></div>
+			    <div class="line"></div>
+			  </div>
+			</div>
+			<div class="ui placeholder">
+			  <div class="image header">
+			    <div class="line"></div>
+			    <div class="line"></div>
+			  </div>
+			</div>
+			<div class="ui placeholder">
+			  <div class="image header">
+			    <div class="line"></div>
+			    <div class="line"></div>
+			  </div>
+			</div>
+			<div class="ui placeholder">
+			  <div class="image header">
+			    <div class="line"></div>
+			    <div class="line"></div>
+			  </div>
+			</div>
+			<div class="ui placeholder">
+			  <div class="image header">
+			    <div class="line"></div>
+			    <div class="line"></div>
+			  </div>
+			</div>
+			<div class="ui placeholder">
+			  <div class="image header">
+			    <div class="line"></div>
+			    <div class="line"></div>
+			  </div>
+			</div>
+			<div class="ui placeholder">
+			  <div class="image header">
+			    <div class="line"></div>
+			    <div class="line"></div>
+			  </div>
+			</div>
+			<div class="ui placeholder">
+			  <div class="image header">
+			    <div class="line"></div>
+			    <div class="line"></div>
+			  </div>
+			</div>
+			<div class="ui placeholder">
+			  <div class="image header">
+			    <div class="line"></div>
+			    <div class="line"></div>
+			  </div>
+			</div>
+		</div>
+		
+		<iframe id="invisible" name="invisible" style="display:none;"></iframe>
+
+		<div class="ui form" id="footer">
+			<!-- <div style="width:100%" class="ui icon input"><input type="text" placeholder="Type a message..."><i class="paper plane icon"></i></div> -->
+		  	<form id="form" onsubmit="sendMessage()" target="invisible" method="post" action="https://script.google.com/macros/s/AKfycbzc3YogTKYDV20gIz35wxu2fupij0MDy82SHbODit-ocuZVT1VI/exec">
+			    <div class="field">
+
+			    	<div class="ui icon input"><input id="message" type="text" name="Content" placeholder="Type a message..."><i class="paper plane icon"></i></div>
+			    	<input type="submit" id="name" name="Name" value="Vincent Lin" style="display:none;">
+			    </div>
+			</form>
+		</div>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+	<script src="chat.js" type="text/javascript"></script>
+</body>
+</html>
