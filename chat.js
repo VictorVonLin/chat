@@ -4,7 +4,7 @@ function sendMessage(){
 	var f = document.getElementById("form");
 	var m = document.getElementById("message").value;
 	var n = document.getElementById("name").value;
-	var s = '<div class="ui comments"><div class="comment"><a class="ui avatar circular image"><img class="ui avatar image" src="pfpic.JPG"></a><div class="content"><a class="author">' +
+	var s = '<div class="ui comments"><div class="comment"><a class="ui avatar circular image"><img class="ui avatar image" src="pfpic.png"></a><div class="content"><a class="author">' +
 			 n + '</a><div class="metadata"><div class="date">' + "Just Now" + '</div></div><div class="text">'+ m + '</div></div></div></div>'
 	container = document.getElementById("content")
 	container.innerHTML += s;
