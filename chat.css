@@ -1,15 +1,19 @@
-#header {
+/*#header {
 	position:fixed;
-
+	height:7%;
 	left:15px;
 	top:15px;
 	width:100%;
 }
+.header{
+	height:7%;
+	background-color: white;
+}*/
 #content{
 	position:fixed;
-	top:7%;
+	top:0;
 	width:100vw;
-	height:89%;
+	height:95%;
 	overflow:auto;
 }
 #footer {
@@ -19,4 +23,8 @@
    width: 100vw;
    text-align: center;
    /*margin-bottom:2vh;*/
+}
+#message{
+
+	font-size: 16px;
 }
