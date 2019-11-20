@@ -8,12 +8,14 @@ function sendMessage(){
 			 n + '</a><div class="metadata"><div class="date">' + "Just Now" + '</div></div><div class="text">'+ m + '</div></div></div></div>'
 	container = document.getElementById("content")
 	container.innerHTML += s;
-	container.scrollTo(0,container.scrollHeight);
+	document.getElementById("content").style.height = (((window.innerHeight - $('#message').outerHeight())/window.innerHeight) * 100 )+ "%"; 
+	container.scrollTo(0, container.scrollHeight);
 	setTimeout(function(){ f.reset(); }, 10);
 }
 
 
 function getChatLogs(e){
+
 	var xhr = new XMLHttpRequest();
     xhr.open('GET', "https://script.google.com/macros/s/AKfycbzc3YogTKYDV20gIz35wxu2fupij0MDy82SHbODit-ocuZVT1VI/exec" + '?callback=""');
     xhr.onreadystatechange = function(e) {
@@ -27,6 +29,7 @@ function getChatLogs(e){
       }
     }
     xhr.send();
+
 }
 
 
@@ -41,16 +44,19 @@ function buildHTML(data) {
     }, '')
 
     var container = document.getElementById("content");	
-    if( data.length > container.childElementCount || first){
+    if(data.length > container.childElementCount || first){
     	container.innerHTML = str;
+    	document.getElementById("content").style.height =  (((window.innerHeight - $('#message').outerHeight())/window.innerHeight) * 100 )+ "%"; 
 	    container.scrollTo(0,container.scrollHeight);
-		
     	first = false;
     }
+	
 }
 
 
 $("form :input").attr("autocomplete", "off");
 var current;
 var first = true;
+// document.getElementById("content").outerheight = (window.outerHeight - $('#message').outerHeight()); 
 getChatLogs();
+
