@@ -108,13 +108,13 @@
 		</div>
 		
 		<iframe id="invisible" name="invisible" style="display:none;"></iframe>
-
 		<div class="ui form" id="footer">
-			<!-- <div style="width:100%" class="ui icon input"><input type="text" placeholder="Type a message..."><i class="paper plane icon"></i></div> -->
-		  	<form id="form" onsubmit="sendMessage()" target="invisible" method="post" action="https://script.google.com/macros/s/AKfycbzc3YogTKYDV20gIz35wxu2fupij0MDy82SHbODit-ocuZVT1VI/exec">
+		  	<form id="form" onsubmit="if(document.getElementById('message').value.length == 0){return false;}else{ sendMessage();}" target="invisible" method="post" action="https://script.google.com/macros/s/AKfycbzc3YogTKYDV20gIz35wxu2fupij0MDy82SHbODit-ocuZVT1VI/exec">
 			    <div class="field">
-			    	<div class="ui icon input"><input id="message" type="text" name="Content" placeholder="Type a message..."><i class="paper plane icon"></i></div>
-			    	<input type="submit" id="name" name="Name" value="Bill Gates" style="display:none;">
+			    	<input type="text" id="name" name="Name" value="Bill Gates" style="display:none;">
+			    	<div class="ui icon action input"><input id="message" type="text" name="Content" placeholder="Type a message..." >
+			    		<button type="submit" form="form" value="Submit" class="ui teal button">Send <i class="right paper plane icon"></i></button></div>
+
 			    </div>
 			</form>
 		</div>

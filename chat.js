@@ -6,9 +6,9 @@ function sendMessage(){
 	var n = document.getElementById("name").value;
 	var s = '<div class="ui comments"><div class="comment"><a class="ui avatar circular image"><img class="ui avatar image" src="pfpic.png"></a><div class="content"><a class="author">' +
 			 n + '</a><div class="metadata"><div class="date">' + "Just Now" + '</div></div><div class="text">'+ m + '</div></div></div></div>'
-	container = document.getElementById("content")
+	container = document.getElementById("content");
 	container.innerHTML += s;
-	document.getElementById("content").style.height = (((window.innerHeight - $('#message').outerHeight())/window.innerHeight) * 100 )+ "%"; 
+	document.getElementById("content").style.height = (((window.innerHeight - $('#message').outerHeight())/window.innerHeight) * 100 ) + "%"; 
 	container.scrollTo(0, container.scrollHeight);
 	setTimeout(function(){ f.reset(); }, 10);
 }
@@ -55,8 +55,8 @@ function buildHTML(data) {
 
 
 $("form :input").attr("autocomplete", "off");
+
 var current;
 var first = true;
-// document.getElementById("content").outerheight = (window.outerHeight - $('#message').outerHeight()); 
 getChatLogs();
 
