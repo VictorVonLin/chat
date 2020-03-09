@@ -37,7 +37,7 @@ function buildHTML(data) {
     data.shift()
     var str = data.reduce(function(s, row,i){
       if (row[0] && row[1] && row[2]){
-        s += '<div class="ui comments"><div class="comment"><a class="ui avatar circular image"><img class="ui avatar image" src="hub/_layouts/15/media/proxy.ashx?id=cae9d693-2a6d-4ff6-a5a6-29028d2ca0e6&size=50w50h_fxd"></a><div class="content"><a class="author">' +
+        s += '<div class="ui comments"><div class="comment"><a class="ui avatar circular image"><img class="ui avatar image" src="http://hub/_layouts/15/media/proxy.ashx?id=cae9d693-2a6d-4ff6-a5a6-29028d2ca0e6&size=50w50h_fxd"></a><div class="content"><a class="author">' +
 			 row[1] + '</a><div class="metadata"><div class="date">' + (new Date(row[0])).toLocaleTimeString('en-US').replace(/:\d+ /, ' ') + '</div></div><div class="text">'+ row[2] + '</div></div></div></div>';
       }
       return s;
