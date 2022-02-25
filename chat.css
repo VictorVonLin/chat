@@ -1,30 +1,101 @@
-/*#header {
-	position:fixed;
-	height:7%;
-	left:15px;
-	top:15px;
-	width:100%;
+
+
+#login{
+	padding-top: 15vh
+
 }
-.header{
-	height:7%;
+
+#login-form{
+	width: 350.75px;
+	height:360px;
+}
+
+#login-logo{
+	font-size: 4rem;
+	padding-bottom: 25px;
+}
+
+.loginput1{
+	padding-top: 10px;
+	padding-bottom: 13px;
+}
+.loginput2{
+	padding-bottom: 22px;
+}
+
+
+.footer {
+  	position: fixed !important;
+  	width: 100%;
+
+	bottom: 0;
+}
+
+#link-foot{
+	left: 0;
+	padding:10px 0 2px 0 !important;
+}
+
+#link-list{
+	padding: 0 50px 0 0;
+}
+
+#create{
+	padding-top: 30px;
+}
+
+.modals.dimmer[class*="top aligned"] .modal{
+	margin:10vh auto !important;
+}
+
+#reg{
+	padding-bottom: 0;
+}
+
+
+.sidebar.visible + .pusher {
+  width: calc(100% - 350px);
+}
+
+html.ios {
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+html.ios,
+html.ios body {
+  height: initial !important;
+}
+
+#list{
+	-webkit-box-shadow: 0 0 0px rgba(34,36,38,.15) !important;
+    box-shadow: 0 0 0px rgba(34,36,38,.15) !important;
+    border-top: none;
+}
+#list::-webkit-scrollbar{
+	display: none !important;
+}
+
+#profilehead{
+	position: sticky !important;
 	background-color: white;
-}*/
-#content{
+	z-index: 9999;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+
+#chat{
 	position:fixed;
 	top:0;
-	width:100vw;
-	height:95%;
+	width:100%;
+	height:100%;
 	overflow:auto;
 }
-#footer {
-   position: fixed;
-   left: 0;
-   bottom: 0;
-   width: 100vw;
-   text-align: center;
-   /*margin-bottom:2vh;*/
-}
-#message{
 
-	font-size: 16px;
+#message:focus{
+	color:none;
+}
+
+.comment{
+	padding-left: 14px !important;
 }

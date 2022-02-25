@@ -1,126 +1,160 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<link rel="shortcut icon" href="logo.png">
-	<title>Chat.</title>
-	<!--Let browser know website is optimized for mobile-->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <html>
+    <head>
+      <title>Peerify | Chat.</title>
+      <link rel="stylesheet" type="text/css" href="chat.css">
+      <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="shortcut icon" href="top.png">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+            <!--Import materialize.css-->
+      <!-- <link type="text/css" rel="stylesheet" href="https://victorvonlin.github.io/Columns/materialize.min.css"  media="screen,projection"/> -->
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+    	<div id="list" class="ui left vertical wide sidebar menu">
+    	  <a id="profilehead" class="item">
+    	      <h2 class="ui teal header">
+    	        <img src="pfpic.png" class="ui circular image">
+    	        Username
+    	      </h2>
+    	  </a>
+    	  
+    	  <div class="item">
+    	     <div class="ui transparent icon input">
+    	       <input type="text" placeholder="Search Peers">
+    	       <i class="search icon"></i>
+    	     </div>
+    	   </div>
+    	</div>
+    	<!-- sidebar above -->
+    	<div id="replaceable" class="visible pusher">
+	    	<main>
 
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-	<link rel="stylesheet" type="text/css" href="chat.css">
-	<script
-	  src="https://code.jquery.com/jquery-3.1.1.min.js"
-	  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-	  crossorigin="anonymous"></script>
-</head>
-<body>
-	<!-- <div class="ui segment"> -->
-		
-<!-- 	<div id="header">
-		<h2 class="ui header">
-			<img src="logo.png">
-			<div class="content">
-			    Chat™
-			<div class="sub header">It's literally Messenger...</div>
-			</div>
-		</h2>
-	</div> -->
-			
-		<div id="content">
-			<div class="ui placeholder">
-			  <div class="image header">
-			    <div class="line"></div>
-			    <div class="line"></div>
-			  </div>
-			</div>
-			<div class="ui placeholder">
-			  <div class="image header">
-			    <div class="line"></div>
-			    <div class="line"></div>
-			  </div>
-			</div>
-			<div class="ui placeholder">
-			  <div class="image header">
-			    <div class="line"></div>
-			    <div class="line"></div>
-			  </div>
-			</div>
-			<div class="ui placeholder">
-			  <div class="image header">
-			    <div class="line"></div>
-			    <div class="line"></div>
-			  </div>
-			</div>
-			<div class="ui placeholder">
-			  <div class="image header">
-			    <div class="line"></div>
-			    <div class="line"></div>
-			  </div>
-			</div>
-			<div class="ui placeholder">
-			  <div class="image header">
-			    <div class="line"></div>
-			    <div class="line"></div>
-			  </div>
-			</div>
-			<div class="ui placeholder">
-			  <div class="image header">
-			    <div class="line"></div>
-			    <div class="line"></div>
-			  </div>
-			</div>
-			<div class="ui placeholder">
-			  <div class="image header">
-			    <div class="line"></div>
-			    <div class="line"></div>
-			  </div>
-			</div>
-			<div class="ui placeholder">
-			  <div class="image header">
-			    <div class="line"></div>
-			    <div class="line"></div>
-			  </div>
-			</div>
-			<div class="ui placeholder">
-			  <div class="image header">
-			    <div class="line"></div>
-			    <div class="line"></div>
-			  </div>
-			</div>
-			<div class="ui placeholder">
-			  <div class="image header">
-			    <div class="line"></div>
-			    <div class="line"></div>
-			  </div>
-			</div>
-			<div class="ui placeholder">
-			  <div class="image header">
-			    <div class="line"></div>
-			    <div class="line"></div>
-			  </div>
-			</div>
-			<div class="ui placeholder">
-			  <div class="image header">
-			    <div class="line"></div>
-			    <div class="line"></div>
-			  </div>
-			</div>
-		</div>
-		
-		<iframe id="invisible" name="invisible" style="display:none;"></iframe>
-		<div class="ui form" id="footer">
-		  	<form id="form" onsubmit="if(document.getElementById('message').value.length == 0){return false;}else{ sendMessage();}" target="invisible" method="post" action="https://script.google.com/macros/s/AKfycbzc3YogTKYDV20gIz35wxu2fupij0MDy82SHbODit-ocuZVT1VI/exec">
-			    <div class="field">
-			    	<input type="text" id="name" name="Name" value="Bill Gates" style="display:none;">
-			    	<div class="ui icon action input"><input id="message" type="text" name="Content" placeholder="Type a message..." >
-			    		<button type="submit" form="form" value="Submit" class="ui teal button">Send <i class="right paper plane icon"></i></button></div>
-
-			    </div>
-			</form>
-		</div>
+	    	    <div id="login" class="ui five column stackable grid" >
+	    	        <div id="login-form" class="ui column centered raised segment" style="display: inline-block; padding: 32px 48px; border: 1px solid #EEE;">
+	    	        	<h1 id = "login-logo" class="ui header teal center aligned">Peerify</h1>
+	    	        	
+		    	        <form class="ui form" id="form" target="invisible" method="get" onsubmit ="login(); return false;">
+		    	            <div class='field auth loginput1'>
+		    	            	<div class="ui left icon input">
+		    	            		<i class="user icon"></i>
+		    	            		<input class='validate' type='text' name='username' id='username' placeholder='Username'/>
+		    	            	</div>
+		    	            </div>
+		    	            <div class='field auth loginput2'>
+		    	            	<div class="ui left icon input">
+		    	            		<i class="lock icon"></i>
+		    	                	<input class='' type='password' name='password' id='password' placeholder='Password'/>
+		    	            	</div>
+		    	            </div>
+		    	              <div class='field'>
+		    	              	<center>
+		    	                <button  name='btn_login' id="btn" onclick="" class='large ui fluid teal button'>Login</button>
+		    	              	</center>
+		    	              </div>
+		    	        </form>
+	    	        </div>
+	    	    </div>
+	    	    <center>
+	    	    	<div id="create" class="ui basic segment">Don't have an account? <a class="modal-trigger" href="#" onclick="$('.ui.modal').modal({centered:false}).modal('show')">Create account</a></div>
+	    	    </center>
+	    	      
 
 
-	<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-	<script src="chat.js" type="text/javascript"></script>
-</body>
-</html>
+
+	    	    <div class="ui small modal">
+	    	      <i class="close icon"></i>
+	    	      <div class="header">
+	    	        Create an account
+	    	      </div>
+	    	      <div id="reg" class="ui basic padded segment scrolling content">
+	    	        <form id="registration" class="ui fluid form" target="invisible" onsubmit="register(); return false">
+	    	          	<div class="two fields">
+		    	            <div class=" field">
+		    	              <label>Username</label>
+		    	              <input id="uname" placeholder="Username" type="text" >
+		    	            </div>
+		    	            <div class="field">
+		    	              <label>Password</label>
+		    	              <input id="pword" placeholder="Password" type="text" >
+		    	            </div>
+	    	          	</div>
+	    	          	<div class="field">
+	    	              <label>E-mail</label>
+	    	              <input type="email" placeholder="JohnSmith@uci.edu (optional)">
+	    	          	</div>
+	    	        
+	    	        <div class="ui accordion">
+	    	          <div class="title">
+	    	            By signing up, you agree to Peerify's <a class="teal" href="#!">&nbsp;Terms of Service and Privacy Policy</a>
+	    	          </div>
+	    	          <div class="content">
+	    	            <p class="transition hidden">
+	    	            	<div class="ui divider"></div>
+	    	            	<h2>Peerify Terms of Service</h2><p>We are not liable for any loss, corruption, or theft of data. Any data, text, graphics, photographs and their selection and arrangement, and any other materials uploaded to the Service by you is at risk. You acknowledge the security risks and compromises of peer to peer connections that come with serverless functionality. We do not guarantee the accuracy, quality, or integrity of any user content posted. By using the Service, you acknowledge and accept that you may be exposed to material you find offensive or objectionable. You agree that we will not be liable for any loss or damage arising from unauthorized use of your credentials.</p>
+	    	            </p>
+	    	          </div>
+	    	          
+	    	        </div>
+	    	      </div>
+	    	      <div class="actions segment">
+	    	      	<button class="ui left floated basic deny button" onclick="return false">Already have an account?</button>
+	    	        <button type="submit" for="registration" class="ui teal right labeled icon button">
+	    	          <i class="chevron right icon"></i>
+	    	          Create account
+	    	        </button>
+	    	      </div>
+
+	    	      </form>
+	    	    </div>
+
+	    	
+		     
+	    	<!--------------------------------------FOOTER---------------------------------------------->
+	    	
+	    	<!-- footer class="page-footer teal ">
+	          <div class="container">
+	            <div class="row">
+	              <div class="col l6 s12">
+	                <h5 class="white-text">Peerify | Chat</h5>
+	                <p class="white-text">Redefining instant messaging with a decentralized approach to web communication. Providing serverless peer to peer communication utilising webRTC with little compromise.</p>
+	              </div>
+	              <div class="col l4 offset-l2 s12">
+	                <h5 class="white-text">Victor Lin</h5>
+	                <ul>
+	                  <li><a class="white-text" href="https://github.com/VictorVonLin">Github</a></li>
+	                  <li><a class="white-text" href="https://www.linkedin.com/in/victor-lin-2591a8183/"></img>LinkedIn</a></li>
+	                </ul>
+	              </div>
+	            </div>
+	          </div>
+	          <div class="footer-copyright">
+	            <div class="container">
+	            © 2020 Copyright Text
+	            <a class="white-text right" href="https://victorvonlin.github.io/">Portfolio</a>
+	            </div>
+	          </div>
+	        </footer>
+    	</div> -->
+	    		<div id='link-foot' class="ui teal inverted vertical footer segment">
+
+		    	   	<div id='link-list' class="ui right floated basic segment">
+			    	    <div class="ui horizontal inverted small divided link list">
+			    	    	<!-- <p class="item">© 2020 Victor Lin</p> -->
+			    	        <a class="item" href="https://victorvonlin.github.io/"><i class="user circle icon"></i>Portfolio</a>
+			    	        <a class="item" href="https://www.linkedin.com/in/victor-lin-2591a8183/"><i class="linkedin icon"></i>LinkedIn</a>
+			    	        <a class="item" href="https://github.com/VictorVonLin"><i class="github icon"></i>Github</a>
+			    	    </div>
+	    	   		</div>
+	    		</div>    
+	    		</div>                            
+    		</main>
+    	</div>
+    	<!--------------------------------------ONLOAD---------------------------------------------->
+    	<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    	<!-- <script type="text/javascript" src="https://victorvonlin.github.io/Columns/materialize.min.js"></script> -->
+    	<script type="text/javascript" src="chat.js"></script>
+    </body>
+  </html>
