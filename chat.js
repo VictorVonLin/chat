@@ -37,7 +37,7 @@ function MsgHtml(msg){
 
 class Connection{
     constructor(){
-        this.conf = {iceServers: [{urls: []}]};
+        this.conf = {iceServers: [{urls: ["stun:stun.l.google.com:19302"]}]};
         this.pc = new RTCPeerConnection(this.conf);
         this.peer
         this.connected = false;
