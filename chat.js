@@ -182,7 +182,7 @@ function remoteOfferGot(offer){
     }else{
         C = tests[tests.length-1]
     }
-    C.pc.setRemoteDescription(_remoteOffer).then(function() {
+    C.pc.setRemoteDescription(offer).then(function() {//THIS MIGHT BREAK THE CODE
             console.log('setRemoteDescription ok');
             if(_remoteOffer.type == "offer"){
                 C.pc.createAnswer().then(function(description){
