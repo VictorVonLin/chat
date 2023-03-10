@@ -262,26 +262,26 @@ function login(e) {
     xhr.send();
     
 }
-function reset(){//timer reset for (1) users
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET',  url + '?callback=ctrlq&User='+ User +'&action=reset');
-    xhr.onreadystatechange = function(e) {
-      if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-        var result = JSON.parse(e.target.response);
-      }
-    }
-    xhr.send();
-    timer = setInterval(function(){
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET',  url + '?callback=ctrlq&User='+ User +'&action=reset');
-        xhr.onreadystatechange = function(e) {
-          if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-            var result = JSON.parse(e.target.response);
-          }
-        }
-        xhr.send();
-    }, 10000) 
-}
+// function reset(){//timer reset for (1) users
+//     var xhr = new XMLHttpRequest();
+//     xhr.open('GET',  url + '?callback=ctrlq&User='+ User +'&action=reset');
+//     xhr.onreadystatechange = function(e) {
+//       if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+//         var result = JSON.parse(e.target.response);
+//       }
+//     }
+//     xhr.send();
+//     timer = setInterval(function(){
+//         var xhr = new XMLHttpRequest();
+//         xhr.open('GET',  url + '?callback=ctrlq&User='+ User +'&action=reset');
+//         xhr.onreadystatechange = function(e) {
+//           if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+//             var result = JSON.parse(e.target.response);
+//           }
+//         }
+//         xhr.send();
+//     }, 10000) 
+// }
 
 
 function logoff(user){
@@ -292,7 +292,8 @@ function logoff(user){
       if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
         var result = JSON.parse(e.target.response);
         if(Object.size(connections) == 0){
-            reset()
+//             reset()
+            console.log("last peer logged off!");
         }
       }
     }
@@ -327,7 +328,7 @@ function answer(data){
         remoteOfferGot(offers[Users[datlen]]);
     }else{
         console.log("no one on")
-        reset()
+//         reset()
         localOfferSet();
     }
 }
