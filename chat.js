@@ -165,6 +165,7 @@ function localOfferSet(){//CONVERSION WIP: SHOULD ONLY BE CALLED ON LOGIN(immedi
                     return;
                 }else{
                     console.log('after GetherTimeout');
+                    sendCheck();
                     localOffer.value = JSON.stringify(C.pc.localDescription);//wtf
                 }
             },2000);
