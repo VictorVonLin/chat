@@ -337,25 +337,6 @@ function sendAnswers(){
     xhr.onreadystatechange = function(e) {
       if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
         var result = JSON.parse(e.target.response);
-        
-        if(states != datlen){
-            console.log('initiating brute reload')
-            answers = []
-
-            var x = new XMLHttpRequest();
-            x.open('GET',  url + '?callback=ctrlq&Users='+JSON.stringify(Users)+'&Answers='+encodeURIComponent(JSON.stringify(answers))+'&action=answer');
-            x.onreadystatechange = function(e) {
-              if (x.readyState === XMLHttpRequest.DONE && x.status === 200) {
-                var result = JSON.parse(e.target.response);
-              }
-            }
-            x.send();
-
-            setTimeout(function(){
-                datlen = 0;
-                remoteOfferGot(offers[Users[datlen]])
-            }, 2500);
-        }
       }
     }
     xhr.send();
