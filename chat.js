@@ -121,7 +121,7 @@ class Connection{
             if(mode == true && this.iceConnectionState == 'connected' ){
                 states += 1;
             }
-            if(mode == false && this.iceConnectionState == 'checking'){
+            if(mode == false){
                 if(Object.size(connections) == 0){
                     clearInterval(timer);
                 }
