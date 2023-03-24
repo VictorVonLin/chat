@@ -99,7 +99,7 @@ class Connection{
             if(!cand){
                 console.log('iceGatheringState complete');
                 var off = this.localDescription
-                if(mode == true){
+                if(answering_state == true){
                     answers.push(JSON.stringify(off));//OFFER STRINGIFY
                     datlen += 1;//increment through users needed to be answered
                     if(datlen == Users.length){
@@ -109,7 +109,7 @@ class Connection{
                     }
                 }else{
                     sendOffer(off);
-                    // mode = true;
+                    // answering_state = true;
                 }
             }else{
                 console.log(cand.candidate);
@@ -118,13 +118,10 @@ class Connection{
 
         this.pc.oniceconnectionstatechange = function(){
             console.log('iceconnectionstatechange: ',this.iceConnectionState);
-            if(mode == true && this.iceConnectionState == 'connected' ){
-                states += 1;
+            if(answering_state == true && this.iceConnectionState == 'connected' ){
+                console.log("debugging onicestateconnection")
             }
-            if(mode == false){
-                if(Object.size(connections) == 0){
-                    clearInterval(timer);
-                }
+            if(answering_state == false){
                 sendCheck();
             }
             if(this.iceConnectionState == 'disconnected'){
@@ -143,13 +140,13 @@ class Connection{
 
 
 function localOfferSet(){//CONVERSION WIP: SHOULD ONLY BE CALLED ON LOGIN(immediate w 0 users) AND REOFFER
-    if(mode == true){
+    if(answering_state == true){
         //REPLACE HTML PLEASE!
         $('#list').addClass('visible')
         $('#replaceable').html('<div>Welcome to Peerify</div>')
 
         
-        mode = false
+        answering_state = false
         
     }
     var C = new Connection();
@@ -203,17 +200,15 @@ function remoteOfferGot(offer){
 connections = new Set()//set containing data channels between peers
 tests = []
 //=========================================================AUTHENTIFICATION===========================================================
-var url = "https://script.google.com/macros/s/AKfycbzc3YogTKYDV20gIz35wxu2fupij0MDy82SHbODit-ocuZVT1VI/exec"
-var mode = true//true for answering : false for offering 
+var url = "https://script.google.com/macros/s/AKfycbyq6iGApyHcwkAAUul5ApcGShJyBoopDAms4fSfrdnE1VMthZw11Mf6dFmpc3uCnpdKzQ/exec"
+var answering_state = true//true for answering : false for offering 
 var datlen = 0
-var states = 0//for how many connectionState's passed.
 var Users = []
 var offers = {}
 var answers = [];
 var User
 var activeElement
 var activePeer = ""
-var timer
 var chatmap
 var userbase = []
 $('.ui.accordion')
@@ -249,7 +244,7 @@ function login(e) {
         }else{
             User = Username.value
             answer(result.data);
-            // console.log(result.data)
+            console.log(result.data)
             chatmap = JSON.parse(result.data.map)
             userbase = Array.from(result.data.userbase);//no need to JSON.parse because its list not obj.
             
@@ -262,26 +257,6 @@ function login(e) {
     xhr.send();
     
 }
-// function reset(){//timer reset for (1) users
-//     var xhr = new XMLHttpRequest();
-//     xhr.open('GET',  url + '?callback=ctrlq&User='+ User +'&action=reset');
-//     xhr.onreadystatechange = function(e) {
-//       if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-//         var result = JSON.parse(e.target.response);
-//       }
-//     }
-//     xhr.send();
-//     timer = setInterval(function(){
-//         var xhr = new XMLHttpRequest();
-//         xhr.open('GET',  url + '?callback=ctrlq&User='+ User +'&action=reset');
-//         xhr.onreadystatechange = function(e) {
-//           if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-//             var result = JSON.parse(e.target.response);
-//           }
-//         }
-//         xhr.send();
-//     }, 10000) 
-// }
 
 
 function logoff(user){
@@ -344,7 +319,7 @@ function sendAnswers(){
     xhr.send();
 }
 
-function sendCheck(){
+function sendCheck(){ //IMPLEMENT LONG POLLING, THIS SEEMS FINE FOR NOW WE JUST NEED LONG POLL RECURSION; ADDITIONALLY ANSWERER IS NOT SENDING CHECK ON CONNECTION
     var xhr = new XMLHttpRequest();
     xhr.open('GET',  url + '?callback=ctrlq&User='+User+'&action=check');
     xhr.onreadystatechange = function(e) {
