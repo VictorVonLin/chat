@@ -97,7 +97,8 @@ class Connection{
         this.pc.onicecandidate = function(e){
             var cand = e.candidate;
             if(!cand){
-                console.log('iceGatheringState complete');
+                console.log('iceGatheringState complete: ');
+                console.log('Answering_state: ' , answering_state)
                 var off = this.localDescription
                 if(answering_state == true){
                     answers.push(JSON.stringify(off));//OFFER STRINGIFY
@@ -105,11 +106,12 @@ class Connection{
                     if(datlen == Users.length){
                         sendAnswers();
                     }else{
+                        console.log("HERE 1")
                         remoteOfferGot(offers[Users[datlen]]);
                     }
                 }else{
                     sendOffer(off);
-                    // answering_state = true;
+                    sendCheck()
                 }
             }else{
                 console.log(cand.candidate);
@@ -121,8 +123,8 @@ class Connection{
             if(answering_state == true && this.iceConnectionState == 'connected' ){
                 console.log("debugging onicestateconnection")
             }
-            if(answering_state == false){
-                sendCheck();
+            if(answering_state == false ){
+                console.log(this.iceConnectionState , "offering state")
             }
             if(this.iceConnectionState == 'disconnected'){
                 if(con.connected == true){
@@ -174,6 +176,7 @@ function localOfferSet(){//CONVERSION WIP: SHOULD ONLY BE CALLED ON LOGIN(immedi
 
 function remoteOfferGot(offer){
     var _remoteOffer = new RTCSessionDescription(offer);//ANSWER
+    console.log("TESTING RTC SESH DESC: ", offer.type)
     console.log('remoteOffer \n',_remoteOffer);
     if(tests.length == 0){
         C = new Connection()
@@ -190,7 +193,7 @@ function remoteOfferGot(offer){
                 }).catch(errHandler);               
             }
             else{
-                console.log('ANSWER?')
+                console.log('ANSWER?', C)
             }
     }).catch(errHandler);
 // return C
@@ -200,7 +203,7 @@ function remoteOfferGot(offer){
 connections = new Set()//set containing data channels between peers
 tests = []
 //=========================================================AUTHENTIFICATION===========================================================
-var url = "https://script.google.com/macros/s/AKfycbyq6iGApyHcwkAAUul5ApcGShJyBoopDAms4fSfrdnE1VMthZw11Mf6dFmpc3uCnpdKzQ/exec"
+var url = "https://script.google.com/macros/s/AKfycbz_TxpR4A8XgXeeSgbrju23yGS0eWuMFqm49wGw2LROhirswJ9bVTWNSViBSVPvNR5XnQ/exec"
 var answering_state = true//true for answering : false for offering 
 var datlen = 0
 var Users = []
@@ -265,7 +268,8 @@ function logoff(user){
     xhr.open('GET',  url + '?callback=ctrlq&User='+ user +'&action=logoff');
     xhr.onreadystatechange = function(e) {
       if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-        var result = JSON.parse(e.target.response);
+        var result = JSON.parse(e.target.response); 
+        //MIGHT NEED DAT LEN
         if(Object.size(connections) == 0){
 //             reset()
             console.log("last peer logged off!");
@@ -300,6 +304,7 @@ function answer(data){
         }
     }
     if(Users.length != 0){
+        console.log("HERE 2")
         remoteOfferGot(offers[Users[datlen]]);
     }else{
         console.log("no one on")
@@ -328,6 +333,7 @@ function sendCheck(){ //IMPLEMENT LONG POLLING, THIS SEEMS FINE FOR NOW WE JUST 
         if(result.data == ""){//TRY TO FIX THIS GS SIDE
             sendCheck()
         }else{
+            console.log(result)
             remoteOfferGot(JSON.parse(result.data));
         }
       }
